@@ -5,6 +5,5 @@ import "jquery"
 import "semantic-ui"
 
 $(document).ready(function(){
-  $('.ui.accordion').accordion()
+  //initializers
 });
-
