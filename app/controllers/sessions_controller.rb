@@ -24,4 +24,14 @@ class SessionsController < ApplicationController
       render 'new', status: :not_found
     end
   end
+
+  def destroy
+    if logged_in?
+      session[:user_id] = nil
+      flash[:notice] = "user logged out successfully"
+    else
+      flash[:alert] = "no logged in session found."
+    end
+    redirect_to login_path
+  end
 end

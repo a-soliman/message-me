@@ -8,7 +8,7 @@
       Account <i class="dropdown icon"></i>
       <div class="menu">
         <% if logged_in?%>
-          <a class="item">Logout</a>
+          <%= link_to "Logout", logout_path, data: { turbo_method: :delete }, class: "item" %>
         <% else %>
           <%= link_to "Login", login_path, class: "item" %>
           <a class="item">Signup</a>
@@ -17,7 +17,7 @@
     </div>
     <div class="item">
       <% if logged_in?%>
-        <div class="ui primary button">Logout</div>
+        <%= link_to "Logout", logout_path, data: { turbo_method: :delete }, class: "ui red button" %>
       <% else %>
         <div class="ui primary button">Sign Up</div>
       <% end %>
