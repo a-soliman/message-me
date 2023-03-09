@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
+  before_action :redirect_if_logged_in, only: [:new, :create]
+
   def new
-    redirect_to root_path if logged_in?
   end
 
   def create
@@ -13,14 +14,14 @@ class SessionsController < ApplicationController
       if user.authenticate(password_param)
         # authenticated
         session[:user_id] = user.id
-        flash[:notice] = "Welcome back #{user.username}!"
+        flash[:success] = "Welcome back #{user.username}!"
         redirect_to root_path
       else
-        flash.now[:alert] = "Invalid password"
+        flash.now[:error] = "Invalid password"
         render 'new', status: :unauthorized
       end
     else
-      flash.now[:alert] = "Invalid login details"
+      flash.now[:error] = "Invalid login details"
       render 'new', status: :not_found
     end
   end
@@ -28,9 +29,9 @@ class SessionsController < ApplicationController
   def destroy
     if logged_in?
       session[:user_id] = nil
-      flash[:notice] = "user logged out successfully"
+      flash[:success] = "user logged out successfully"
     else
-      flash[:alert] = "no logged in session found."
+      flash[:error] = "no logged in session found."
     end
     redirect_to login_path
   end
