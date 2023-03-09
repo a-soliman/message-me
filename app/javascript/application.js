@@ -6,4 +6,5 @@ import "semantic-ui"
 
 $(document).ready(function(){
   //initializers
+  $('.ui.dropdown').dropdown();
 });
