@@ -7,13 +7,20 @@
     <div class="ui dropdown item">
       Account <i class="dropdown icon"></i>
       <div class="menu">
-        <a class="item">Logout</a>
-        <%= link_to "Login", login_path, class: "item" %>
-        <a class="item">Signup</a>
+        <% if logged_in?%>
+          <a class="item">Logout</a>
+        <% else %>
+          <%= link_to "Login", login_path, class: "item" %>
+          <a class="item">Signup</a>
+        <% end %>
       </div>
     </div>
     <div class="item">
+      <% if logged_in?%>
+        <div class="ui primary button">Logout</div>
+      <% else %>
         <div class="ui primary button">Sign Up</div>
+      <% end %>
     </div>
   </div>
 </div>
