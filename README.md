@@ -1,24 +1,38 @@
-# README
+# MessageMe
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+*Rails7 Chat application*
 
-Things you may want to cover:
+## Ruby version
 
-* Ruby version
+- 3.2.1
 
-* System dependencies
+## System dependencies
 
-* Configuration
+- Ruby 3.2.1
+- Rails 7
 
-* Database creation
+## Development
 
-* Database initialization
+1. install dependencies `bundle install`
+3. migrate/prepare the database `rails db:migrate`
+4. run the development server `rails server`
 
-* How to run the test suite
+## Database initialization
 
-* Services (job queues, cache servers, search engines, etc.)
+``` bash
+rails db:migrate
+```
 
-* Deployment instructions
+## How to run the test suite
 
-* ...
+```bash
+rails test
+```
+
+## Deployment instructions
+
+1. The production application requires provisioned Redis server to manage the chatroom subscription and broadcast functionality.
+``` bash
+git push heroku main
+heroku run rails db:migrate
+```
