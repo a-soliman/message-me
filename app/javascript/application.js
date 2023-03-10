@@ -7,7 +7,11 @@ import 'semantic-ui';
 $(document).ready(function () {
   //initializers
   $('.ui.dropdown').dropdown();
-  $('.message .close').on('click', function () {
-    $(this).closest('.message').transition('fade');
-  });
+});
+
+document.addEventListener('click', (evt) => {
+  const { target } = evt;
+  if (target.classList.contains('close') && target.parentElement.classList.contains('message')) {
+    target.parentElement.style.opacity = 0;
+  }
 });
