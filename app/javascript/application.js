@@ -4,10 +4,11 @@ import 'controllers';
 import 'jquery';
 import 'semantic-ui';
 
-$(document).ready(function () {
-  //initializers
-  $('.ui.dropdown').dropdown();
-});
+const scrollMessages = () => {
+  const element = document.querySelector('#messages');
+  if (!element) return;
+  element.scrollTo(0, element.scrollHeight);
+};
 
 document.addEventListener('click', (evt) => {
   const { target } = evt;
@@ -15,3 +16,11 @@ document.addEventListener('click', (evt) => {
     target.parentElement.style.opacity = 0;
   }
 });
+
+$(document).ready(function () {
+  //initializers
+  $('.ui.dropdown').dropdown();
+  scrollMessages();
+});
+
+import 'channels';
