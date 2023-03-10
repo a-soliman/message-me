@@ -1,0 +1,12 @@
+<% if resource.errors.any? %>
+  <div class="ui error message transition" >
+    <i class="close icon"></i>
+    <h4 class="alert-heading">The following errors occured</h4>
+    <div class="ui horizontal divider"></div>
+    <% resource.errors.full_messages.each do |msg| %>
+      <div class="header">
+        <%= msg %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

@@ -13,7 +13,7 @@ const scrollMessages = () => {
 document.addEventListener('click', (evt) => {
   const { target } = evt;
   if (target.classList.contains('close') && target.parentElement.classList.contains('message')) {
-    target.parentElement.style.opacity = 0;
+    target.parentElement.remove();
   }
 });
 

@@ -11,7 +11,7 @@
           <%= link_to "Logout", logout_path, data: { turbo_method: :delete }, class: "item" %>
         <% else %>
           <%= link_to "Login", login_path, class: "item" %>
-          <a class="item">Signup</a>
+          <%= link_to "Signup", signup_path, class: "item" %>
         <% end %>
       </div>
     </div>
@@ -19,7 +19,7 @@
       <% if logged_in?%>
         <%= link_to "Logout", logout_path, data: { turbo_method: :delete }, class: "ui red button" %>
       <% else %>
-        <div class="ui primary button">Sign Up</div>
+        <%= link_to "Signup", signup_path, class: "ui primary button" %>
       <% end %>
     </div>
   </div>

@@ -2,13 +2,14 @@
 
 <h4 class="ui center aligned medium icon header">
   <i class="circular blue power off icon"></i>
-  Login to continue
+  Signup to continue
 </h4>
 
 <div class="ui placeholder segment">
   <div class="ui two column very relaxed stackable grid">
     <div class="column">
-      <%= form_with(scope: :session, url: login_path, class: "ui form", local: true) do |f| %>
+      <%= render "shared/errors", resource: @user %>
+      <%= form_with(model: @user, url: signup_path, class: "ui form", local: true) do |f| %>
         <div class="field">
           <label>Username</label>
           <div class="ui left icon input">
@@ -24,13 +25,13 @@
           </div>
         </div>
         <div class="">
-          <%= f.submit "Login", class: "ui blue submit button" %>
+          <%= f.submit "Signup", class: "ui blue submit button" %>
         </div>
     <% end %>
       </div>
     <div class="middle aligned column">
       <div class="ui big button">
-        <%= link_to '<i class="signup icon"></i> Signup'.html_safe , signup_path %>
+        <%= link_to '<i class="signup icon"></i> Login'.html_safe , login_path %>
       </div>
     </div>
   </div>
